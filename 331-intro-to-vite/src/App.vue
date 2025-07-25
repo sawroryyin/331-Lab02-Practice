@@ -13,7 +13,7 @@ const events = ref<Event[]>()
 <template>
   <div id="layout">
     <header>
-      <div id="flashMessage" v-if="message">
+      <div id="flashMessage" v-if="message.includes('register')">
         <h4>{{ message }}</h4>
       </div>
       <div class="wrapper">
