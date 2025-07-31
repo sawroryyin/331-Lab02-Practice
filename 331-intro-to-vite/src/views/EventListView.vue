@@ -57,7 +57,7 @@ onMounted(() => {
 
     <!-- Dropdown for selecting number of events per page -->
     <label for="limit-select">Events per page:</label>
-    <select id="limit-select" v-model.number="limit" @change="updateLimit(limit)">
+    <select id="limit-select" v-model.number="limit" @change="updateLimit(limit)" class="border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-green-500">
       <option :value="1">1</option>
       <option :value="2">2</option>
       <option :value="3">3</option>
@@ -69,59 +69,22 @@ onMounted(() => {
     <EventCard v-for="event in events" :key="event.id" :event="event" />
     <CategoryCard v-for="event in events" :key="event.id" :event="event" />
 
-    <div class="pagination">
-      <div id="page-prev-wrapper" v-if="page > 1">
+    <div class="flex justify-between gap-4 mt-6 w-full max-w-md">
+      <div :class="{ 'invisible': page <= 1 }">
         <RouterLink
-        id="page-prev"
         :to="{ name: 'event-list-view', query: { page: page - 1, limit: limit}}"
         rel="prev"
-        v-if="page > 1"
+        class="bg-gray-200 hover:bg-gray-300 text-gray-800 rounded px-4 py-2 text-left block"
         >&#60; Prev Page</RouterLink>
       </div>
 
-      <div id="page-next-wrapper" v-if="hasNexPage">
+      <div v-if="hasNexPage">
       <RouterLink
-        id="page-next"
         :to="{ name: 'event-list-view', query: { page: page + 1, limit: limit}}"
         rel="next"
-        v-if="hasNexPage"
+        class="bg-gray-200 hover:bg-gray-300 text-gray-800 rounded px-4 py-2 text-right block"
         >Next Page &#62;</RouterLink>
       </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-
-.pagination {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1em;
-  justify-content: space-between;
-  width: auto;
-}
-.pagination a {
-  text-decoration: none;
-  color: #2c3e50;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  background-color: #eee;
-  transition: background-color 0.2s;
-}
-#page-prev {
-  text-align: left;
-}
-#page-next {
-  text-align: right;
-}
-select {
-  margin-bottom: 1rem;
-}
-.pagination a:hover {
-  background-color: #ccc;
-}
-#page-prev-wrapper,
-#page-next-wrapper {
-  flex-shrink: 0;
-}
-</style>

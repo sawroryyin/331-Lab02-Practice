@@ -18,7 +18,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="events">
+  <div class="flex flex-col items-center">
     <h1>Events For Good</h1>
     <!-- new element -->
     <!-- <EventCard v-for="student in students" :key="student.id" :name="event" />
@@ -26,11 +26,3 @@ onMounted(() => {
     <InfoCard v-for="student in students" :key="student.id" :student="student" />
   </div>
 </template>
-
-<style scoped>
-.events {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-</style>

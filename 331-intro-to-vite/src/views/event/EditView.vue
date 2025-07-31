@@ -26,5 +26,5 @@ const { event } = toRefs(props)
 
 <template>
     <p>Edit event here</p>
-    <button @click="edit">Edit</button>
+    <button class="bg-gray-300 border border-gray-600 px-[10px] py-[5px] rounded-[3px] text-black font-sans cursor-pointer text-sm hover:bg-[#e0e0e0] active:bg-[#c0c0c0] active:border-[#888]" @click="edit">Edit</button>
 </template>

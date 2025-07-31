@@ -26,13 +26,13 @@ defineProps<{
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
     </h3>
   </div> -->
-  <div class="event-class">
-    <div class="event-card">
-        <span>{{ event.category }}</span>
-        <br>
-        <span>{{ event.organizer }}</span>
-    </div>
+  
+  <div class="cursor-pointer border border-gray-600 p-[20px] w-[250px] mb-[18px] hover:scale-101 hover:shadow-sp">
+      <span>{{ event.category }}</span>
+      <br>
+      <span>{{ event.organizer }}</span>
   </div>
+  
 </template>
 
 <style scoped>
