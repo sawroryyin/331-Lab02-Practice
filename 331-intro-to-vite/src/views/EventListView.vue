@@ -52,7 +52,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="events">
+  <div class="flex flex-col items-center">
     <h1>Events For Good</h1>
 
     <!-- Dropdown for selecting number of events per page -->
@@ -92,11 +92,7 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.events {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 .pagination {
   display: flex;
   gap: 1rem;
