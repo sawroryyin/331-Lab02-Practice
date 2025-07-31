@@ -1,39 +1,18 @@
 <script setup lang="ts">
-import {ref} from 'vue'
+import { ref } from 'vue'
 import type { Student } from '@/types'
 defineProps<{
   student: Student
 }>()
-// const event = ref({
-//   id: 5928101,
-//   category: 'animal welfare',
-//   title: 'Cat Adoption Day',
-//   description: 'Find your new feline friend at this event.',
-//   location: 'Meow Town',
-//   date: 'January 28, 2022',
-//   time: '12:00',
-//   petsAllowed: true,
-//   organizer: 'Kat Laydee'
-// })
 </script>
 
 <template>
-  <!-- <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
-    </h3>
-  </div> -->
-  <div class="event-class">
-    <div class="event-card">
-        <span>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{  student.name }}</span>
-        <br>
-        <span>Surname&nbsp;:&nbsp;{{  student.surname }}</span>
-        <br>
-        <span>GPA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{  student.gpa }}</span>
-    </div>
+  <div class="cursor-pointer border border-gray-600 p-[20px] w-[250px] mb-[18px] hover:scale-101 hover:shadow-sp">
+      <span>Name:{{ student.name }}</span>
+      <br>
+      <span>Surname:{{ student.surname }}</span>
+      <br>
+      <span>GPA:{{ student.gpa }}</span>
   </div>
 </template>
 
@@ -44,7 +23,6 @@ defineProps<{
   cursor: pointer;
   border: 1px solid #39495c;
   margin-bottom: 18px;
-  text-align: left;
 }
 .event-card:hover{
   transform: scale(1.01);

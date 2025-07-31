@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import EventCard from '@/components/EventCard.vue'
-import CategoryCard from '@/components/CategoryCard.vue'
 import InfoCard from '@/components/InfoCard.vue'
 import type { Student } from '@/types'
 import { ref, onMounted } from 'vue'
 import InfoService from '@/services/InfoService'
 
-const events = ref<Student[]>()
+const students = ref<Student[]>([])
 
 onMounted(() => {
-  InfoService.getEvents()
+  InfoService.getInfos()
   .then((response) => {
-    events.value = response.data
+    students.value = response.data
   })
   .catch((error) => {
     console.error('There was an error', error)
@@ -20,19 +18,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="events">
-    <!-- <h1>Events For Good</h1> -->
+  <div class="flex flex-col items-center">
+    <h1>Events For Good</h1>
     <!-- new element -->
-    <!-- <EventCard v-for="event in events" :key="event.id" :event="event" />
-    <CategoryCard v-for="event in events" :key="event.id" :event="event" /> -->
-    <InfoCard v-for="event in events" :key="event.id" :student="event"/>
+    <!-- <EventCard v-for="student in students" :key="student.id" :name="event" />
+    <CategoryCard v-for="student in students" :key="student.id" :event="event" /> -->
+    <InfoCard v-for="student in students" :key="student.id" :student="student" />
   </div>
 </template>
-
-<style scoped>
-.events {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-</style>
