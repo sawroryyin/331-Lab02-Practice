@@ -11,6 +11,7 @@ const events = ref<Event[]>()
 </script>
 
 <template>
+  <SpeedInsights/>
   <div class="text-center font-sans text-gray-700 antialias">
     <header>
       <div class="animate-fade" v-if="message.includes('register')">
